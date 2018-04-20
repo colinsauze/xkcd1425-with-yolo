@@ -4,7 +4,7 @@
 # Use at your own risk. or don't, i don't care
 
 import sys, os
-sys.path.append(os.path.join(os.getcwd(),'python/'))
+sys.path.append(os.path.join(os.getcwd(),'darknet/python'))
 
 import darknet as dn
 import pdb
@@ -69,8 +69,8 @@ def findbirds(target_dir,output_dir):
     #darknet setup
     dn.set_gpu(0)
     #download yolov3.weights from  https://pjreddie.com/media/files/yolov3.weights
-    net = dn.load_net("cfg/yolov3.cfg", "yolov3.weights", 0)
-    meta = dn.load_meta("cfg/coco.data")
+    net = dn.load_net("darknet/cfg/yolov3.cfg", "darknet/yolov3.weights", 0)
+    meta = dn.load_meta("darknet/cfg/coco.data")
 
     #list of extensions to process 
     extensions=('.jpeg','.jpg')
