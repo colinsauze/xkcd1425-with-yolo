@@ -15,10 +15,13 @@ OpenCV
 Matplotlib/basemap
 PIL
 shapely
-exif
 
 System packages:
 gdal-bin
+
+Ubuntu users can install all required dependencies by running:
+
+    sudo apt-get install build-essential git gdal-bin python-numpy python-opencv python-matplotlib python-matplotlib-data python-mpltoolkits.basemap python-mpltoolkits.basemap-data python-pil python-shapely
 
 
 ### Setup:
