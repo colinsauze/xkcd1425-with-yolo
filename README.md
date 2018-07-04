@@ -43,3 +43,19 @@ It also writes a CSV file summary to output_images/data.csv
 ![example image 2](https://raw.githubusercontent.com/colinsauze/xkcd1425-with-yolo/master/output_images/Seagulls.jpg)
 ![example image 3](https://raw.githubusercontent.com/colinsauze/xkcd1425-with-yolo/master/output_images/Train.jpg)
 
+### Running with singualrity:
+
+Singualrity is a container like docker but doesn't require root to run the image.
+
+To build the singularity image locally (yes root is required for this):
+
+    sudo singularity build xkcd1425.img Singularity
+
+To get the image from singularity hub:
+
+To run:
+
+    replace /home/user/output_images with the directory where you want the output 
+    and /home/user/input_images with the directory containing the images you want to process
+
+    singularity run -B /home/user/input_images:/opt/xkcd1425-with-yolo/test_images,/home/user/output_images:/opt/xkcd1425-with-yolo/output_images xkcd1425.img
