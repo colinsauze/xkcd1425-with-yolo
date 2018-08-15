@@ -6,7 +6,8 @@
 git submodule update --init --recursive
 cd darknet
 make
-wget https://pjreddie.com/media/files/yolov3.weights
+#commented out for test mode
+#wget https://pjreddie.com/media/files/yolov3.weights
 cd ..
 
 #annoying hack to make sed replace the path
