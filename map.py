@@ -4,6 +4,9 @@ from matplotlib.collections import PatchCollection
 from matplotlib.patches import PathPatch
 import numpy as np
 import cv2
+#turn off X output, we just want to save a file
+import matplotlib
+matplotlib.use('Agg')
 import matplotlib.pyplot as plt
 
 
