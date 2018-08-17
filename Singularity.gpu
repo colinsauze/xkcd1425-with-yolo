@@ -37,11 +37,8 @@ From: nvidia/cuda:9.0-devel
         make
 	cd ..
 
-        #remove the example images so we can write new ones
-	#uncomment if you want to process the example images in the git repo, output will be saved in the container and then lost
-
-        #how do we find out if we have a bind mount?
 	chmod 777 output_images
+        #delete the example output images	
         rm output_images/*
 
 	#we don't actually need the cuda libraries and the gigabyte of dependencies they installed if we run the container with the --nv option.

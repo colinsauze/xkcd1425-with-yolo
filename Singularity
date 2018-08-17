@@ -1,4 +1,4 @@
-Bootstrap:docker  
+Bootstrap:docker
 From:ubuntu:bionic
 
 %help
@@ -24,10 +24,9 @@ From:ubuntu:bionic
     cd xkcd1425-with-yolo
     ./setup.sh
 
-    #remove the example images so we can write new ones
-    #uncomment if you want to process the example images in the git repo, output will be saved in the container and then lost
-    #chmod 777 output_images
-    #rm output_images/*
+    chmod 777 output_images
+    #delete the example output images
+    rm output_images/*
 
 %runscript
     cd /opt/xkcd1425-with-yolo
