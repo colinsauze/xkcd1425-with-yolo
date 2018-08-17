@@ -58,14 +58,14 @@ def overlay_image(x_offset,y_offset,overlay,target):
 
 def findbirds(target_dir,output_dir):
 
-    #build a list of park boundaries
-    parks = [0,0]
-    # read the shapefiles
-    parks[0]= shape(shapefile.Reader("Cairngorms.shp").shapes()[0])
-    parks[1]= shape(shapefile.Reader("LochLomond.shp").shapes()[0])
-    #store the park names
-    parknames = [ "Cairngorms", "Loch Lomond"]
+    parks = []
+    parknames = []
+    sf = shapefile.Reader("UKParks.shp")
 
+    for i in range(0,len(sf.shapeRecords())):
+        parks.append(shape(sf.shapeRecord(i).shape))
+        parknames.append(sf.record(i)[2])
+        
     #darknet setup
     dn.set_gpu(0)
     #download yolov3.weights from  https://pjreddie.com/media/files/yolov3.weights

@@ -22,8 +22,9 @@ def make_map(lat,lon,img,outfilename):
     ax.imshow(cv2.cvtColor(img,cv2.COLOR_BGR2RGB))
 
     ax = fig.add_subplot(241)
-    # setup mercator map projection, centre it on scotland
-    m = Basemap(llcrnrlon=-8.,llcrnrlat=54.5,urcrnrlon=-1,urcrnrlat=59.5,\
+
+    # setup mercator map projection, show the whole UK
+    m = Basemap(llcrnrlon=-12.,llcrnrlat=49.5,urcrnrlon=2,urcrnrlat=59.5,\
 	        rsphere=(6378137.00,6356752.3142),\
     	    resolution='i',projection='merc',\
     	    lat_0=40.,lon_0=-20.,lat_ts=20.)
@@ -41,15 +42,11 @@ def make_map(lat,lon,img,outfilename):
 
     #draw the national parks
     m.drawcounties()
-    m.readshapefile('LochLomond','lochlomond');
-    m.readshapefile('Cairngorms','cairngorms');
+    m.readshapefile('UKParks','parks');
 
     #make the national parks green
     patches   = []
-    for shape in  m.cairngorms:
-	patches.append( Polygon(np.array(shape), True) )
-
-    for shape in  m.lochlomond:
+    for shape in  m.parks:
 	patches.append( Polygon(np.array(shape), True) )
 
     ax.add_collection(PatchCollection(patches, facecolor= '#17d11d', edgecolor='k', linewidths=1., zorder=2))
